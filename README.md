@@ -11,6 +11,9 @@
 
 ## Интерфейсная модель
 ![alt text](imgs/img1.png)
+![alt text](imgs/img2.png)
+![alt text](imgs/img3.png)
+![alt text](imgs/img4.png)
 
 ## Программные возможности
 * выбор базовой архитектуры (англ. backbone architecture), например: ResNet, MobileNet, DenseNet и др.;
