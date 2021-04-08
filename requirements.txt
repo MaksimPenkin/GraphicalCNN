@@ -1,7 +1,9 @@
+Python==3.9.2
 flake8==3.9.0
 mccabe==0.6.1
 numpy==1.20.2
 opencv-python==4.5.1.48
+Pillow==8.2.0
 pycodestyle==2.7.0
 pydocstyle==6.0.0
 pyflakes==2.3.1
