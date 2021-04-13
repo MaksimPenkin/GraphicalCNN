@@ -20,4 +20,11 @@ class SettingFrame(BaseGridFrame):
         self.label = tk.Label(self, text='TODO Setting Frame')
         self.label.grid(row=0, column=0, sticky="NEWS")
 
+        optionList = ('train', 'plane', 'boat')
+        self.v = tk.StringVar()
+        self.v.set(optionList[0])
+        self.om = tk.OptionMenu(self, self.v, *optionList)
+
+        self.om.grid(row=1,column=0)
+
 
