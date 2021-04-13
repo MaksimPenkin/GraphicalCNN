@@ -25,6 +25,7 @@ class MainFrame(BaseGridFrame):
         self.visualButton = tk.Button(self, text='Visualization', command=self.get_visualFrame)
         self.logsButton = tk.Button(self, text='Logs', command=self.get_logsFrame)
         self.quitButton = tk.Button(self, text='Quit', command=self.master.quit)
+        self.homeButton = tk.Button(self, text='Home', command=self.get_homeFrame)
 
         self.workingFrame = WelcomeFrame(self)
 
@@ -33,10 +34,15 @@ class MainFrame(BaseGridFrame):
         self.logsButton.grid(row=0, column=2, sticky="NEWS")
         self.workingFrame.grid(row=1, column=0, columnspan=3, sticky="NEWS")
         self.quitButton.grid(row=2, column=2, sticky="NEWS")
+        self.homeButton.grid(row=2, column=0, sticky="NEWS")
 
     def update_workingFrame(self):
         self.workingFrame.grid_forget()
         self.workingFrame.grid(row=1, column=0, columnspan=3, sticky="NEWS")
+    
+    def get_homeFrame(self):
+        self.workingFrame = WelcomeFrame(self)
+        self.update_workingFrame()
     
     def get_settingFrame(self):
         self.workingFrame = SettingFrame(self)
