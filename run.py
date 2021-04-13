@@ -29,25 +29,25 @@ class MainFrame(BaseGridFrame):
 
         containerFrame = tk.Frame(self)
 
-        self.settingButton.grid(row=0, column=0, sticky="NEWS")
-        self.visualButton.grid(row=0, column=1, sticky="NEWS")
-        self.logsButton.grid(row=0, column=2, sticky="NEWS")
-        containerFrame.grid(row=1, column=0, columnspan=3, sticky="NEWS")
-        self.quitButton.grid(row=2, column=2, sticky="NEWS")
-        self.homeButton.grid(row=2, column=0, sticky="NEWS")
+        self.settingButton.grid(row=0, column=0, sticky='NEWS')
+        self.visualButton.grid(row=0, column=1, sticky='NEWS')
+        self.logsButton.grid(row=0, column=2, sticky='NEWS')
+        containerFrame.grid(row=1, column=0, columnspan=3, sticky='NEWS')
+        self.quitButton.grid(row=2, column=2, sticky='NEWS')
+        self.homeButton.grid(row=2, column=0, sticky='NEWS')
 
         self.allFrames = {} 
         for F in (WelcomeFrame, SettingFrame, VisualFrame, LogsFrame):
             frame = F(containerFrame)
             self.allFrames[F] = frame
-            frame.grid(row=0, column=0, sticky ="NEWS")
+            frame.grid(row=0, column=0, sticky='NEWS')
         self.show_frame(WelcomeFrame)
 
     def show_frame(self, choice):
         self.allFrames[choice].tkraise()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app = MainFrame()
     app.master.title('Graphical CNN App')
     app.mainloop()

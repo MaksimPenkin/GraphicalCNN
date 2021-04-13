@@ -18,6 +18,6 @@ class LogsFrame(BaseGridFrame):
 
     def createWidgets(self):
         self.label = tk.Label(self, text='TODO Logs Frame')
-        self.label.grid(row=0, column=0, sticky="NEWS")
+        self.label.grid(row=0, column=0, sticky='NEWS')
 
 

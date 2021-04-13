@@ -23,7 +23,7 @@ class BaseGridFrame(tk.Frame):
             self.rowconfigure(i, weight=1)
         for j in range(1):
             self.columnconfigure(j, weight=1)
-        self.grid(sticky="NEWS")
+        self.grid(sticky='NEWS')
 
     def createWidgets(self):
         pass
