@@ -21,7 +21,7 @@ import utility.utils as utils
 
 
 class Runner:
-    def __init__(self, batch_size=8, num_epochs=100, arch='ResBlock', num_filters=8, num_blocks=4, loss='L2', opt='Adam', experiment_name='test_1'):
+    def __init__(self, batch_size=8, num_epochs=100, arch='ResBlock', num_filters=8, num_blocks=4, loss='BCE', opt='Adam', experiment_name='test_1'):
         self.batch_size = batch_size
         self.num_epochs = num_epochs
         self.arch = arch 
@@ -36,7 +36,7 @@ class Runner:
         assert self.arch in ['ResBlock', 'ConvBlock']
         assert self.num_filters > 0
         assert self.num_blocks > 0
-        assert self.loss in ['L2', 'CrossEntropy']
+        assert self.loss in ['BCE', 'CrossEntropy']
         assert self.opt in ['Adam', 'SGD']
 
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
