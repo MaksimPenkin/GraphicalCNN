@@ -1,26 +1,53 @@
-"""
-@author   Maksim Penkin @MaksimPenkin
-@author   Oleg Khokhlov @okhokhlov
-"""
+# """
+# @author   Maksim Penkin @MaksimPenkin
+# @author   Oleg Khokhlov @okhokhlov
+# """
 
 import torch
 import torch.nn as nn
 
 
 def conv3x3(in_channels, out_channels, padding=1, stride=1):
+    """Method for convolution with 3x3 kernel.
+
+    :param in_channels: input number of channels
+    :param out_channels: resulting number of channels
+    :param padding: number of pixels to pad tensor
+    :param stride: stride of convolutional kernel
+    :return y: output tensor
+    """
     return nn.Conv2d(in_channels, out_channels, 3, padding=padding, stride=stride)
 
 
 def conv5x5(in_channels, out_channels, padding=2, stride=1):
+    """Method for convolution with 5x5 kernel.
+
+    :param in_channels: input number of channels
+    :param out_channels: resulting number of channels
+    :param padding: number of pixels to pad tensor
+    :param stride: stride of convolutional kernel
+    :return y: output tensor
+    """
     return nn.Conv2d(in_channels, out_channels, 5, padding=padding, stride=stride)
 
 
 def conv7x7(in_channels, out_channels, padding=3, stride=1):
+    """Method for convolution with 7x7 kernel.
+
+    :param in_channels: input number of channels
+    :param out_channels: resulting number of channels
+    :param padding: number of pixels to pad tensor
+    :param stride: stride of convolutional kernel
+    :return y: output tensor
+    """
     return nn.Conv2d(in_channels, out_channels, 7, padding=padding, stride=stride)
 
 
 class ResBlock(nn.Module):
+    """A class to represent a residual block."""
+
     def __init__(self, num_channels, batch_norm=False):
+        """Constructor method."""
         super().__init__()
 
         self.num_channels = num_channels
@@ -37,6 +64,11 @@ class ResBlock(nn.Module):
         self.conv2 = conv3x3(self.num_channels, self.num_channels)
 
     def forward(self, x):
+        """Method for forward pass.
+
+        :param x: input tensor
+        :return y: output tensor
+        """
         original_x = x
 
         if self.batch_norm:
@@ -53,7 +85,10 @@ class ResBlock(nn.Module):
 
 
 class ConvBlock(nn.Module):
+    """A class to represent a convolutional block."""
+
     def __init__(self, num_channels, ksize=3, batch_norm=False):
+        """Constructor method."""
         super().__init__()
 
         self.num_channels = num_channels
@@ -73,6 +108,11 @@ class ConvBlock(nn.Module):
             self.conv = conv7x7(self.num_channels, self.num_channels)
 
     def forward(self, x):
+        """Method for forward pass.
+
+        :param x: input tensor
+        :return y: output tensor
+        """
         if self.batch_norm:
             x = self.bn(x)
         x = self.relu(x)
@@ -82,7 +122,10 @@ class ConvBlock(nn.Module):
 
 
 class UpSample(nn.Module):
+    """A class to represent a upsample block."""
+
     def __init__(self, num_channels, scale_factor=2):
+        """Constructor method."""
         super().__init__()
         self.num_channels = num_channels
         self.scale_factor = scale_factor
@@ -90,6 +133,12 @@ class UpSample(nn.Module):
         self.conv = conv3x3(self.num_channels, self.num_channels//2)
 
     def forward(self, x1, x2):
+        """Method for forward pass.
+
+        :param x1: input tensor to be upsampled
+        :param x2: input tensor to be summed
+        :return y: output tensor
+        """
         x1 = self.conv(self.up(x1))
         x = x1+x2
 

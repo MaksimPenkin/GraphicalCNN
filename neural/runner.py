@@ -1,7 +1,7 @@
-"""
-@author   Maksim Penkin @MaksimPenkin
-@author   Oleg Khokhlov @okhokhlov
-"""
+# """
+# @author   Maksim Penkin @MaksimPenkin
+# @author   Oleg Khokhlov @okhokhlov
+# """
 
 import os
 import time
@@ -19,8 +19,11 @@ import utility.utils as utils
 
 
 class Runner:
+    """A class to represent a runner for choisen CNN"""
+
     def __init__(self, batch_size=8, num_epochs=100, arch='ResBlock', num_filters=8, num_blocks=4,
                  loss='BCE', opt='Adam', experiment_name='test_1'):
+        """Constructor method."""
         self.batch_size = batch_size
         self.num_epochs = num_epochs
         self.arch = arch
@@ -41,11 +44,16 @@ class Runner:
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     def assert_train_pathes(self, force=False):
+        """Method for creating training pathes.
+
+        :param force: if set True, overwrite directory in case of existence
+        """
         self.path_data = './data'
         self.path_experiment = os.path.join('./checkpoints', self.experiment_name)
         utils.create_folder(self.path_experiment, force=True)
 
     def prepare_trainval_dataset(self):
+        """Method for prepating dataset iterators."""
         transform = transforms.Compose([
             HorizontalFlipRandom(),
             VerticalFlipRandom(),
@@ -67,12 +75,15 @@ class Runner:
         self.valloader = DataLoader(valset, batch_size=8, shuffle=False, num_workers=0)
 
     def get_loss(self):
+        """Method choosing loss function."""
         return torch.nn.BCEWithLogitsLoss()
 
     def get_optimizer(self, model):
+        """Method choosing optimization algorithm."""
         return optim.Adam(model.parameters(), lr=0.001)
 
     def train(self):
+        """Method for training loop."""
         self.assert_train_pathes(force=False)
         self.prepare_trainval_dataset()
 

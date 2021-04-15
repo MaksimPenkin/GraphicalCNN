@@ -1,7 +1,7 @@
-"""
-@author   Maksim Penkin @MaksimPenkin
-@author   Oleg Khokhlov @okhokhlov
-"""
+# """
+# @author   Maksim Penkin @MaksimPenkin
+# @author   Oleg Khokhlov @okhokhlov
+# """
 
 import os
 import argparse
@@ -9,10 +9,15 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 import cv2
-import utils as utils
 
 
 def check_positive_int(value):
+    """Method for checking value to be positive integer.
+
+    :param value: input value
+    :raises TypeError: exception is raised if value is not positive
+    :return ivalue: resulting value
+    """
     ivalue = int(value)
     if ivalue <= 0:
         raise argparse.ArgumentTypeError('%s is an invalid positive int value' % value)
@@ -20,6 +25,7 @@ def check_positive_int(value):
 
 
 def parse_args():
+    """Method for parsing args."""
     parser = argparse.ArgumentParser(description='Toy Circle arguments', usage='%(prog)s [-h]')
 
     parser.add_argument('--num_images', type=check_positive_int, default=1000,
@@ -50,6 +56,8 @@ def parse_args():
 
 
 if __name__ == '__main__':
+    import utils as utils
+
     print('Creating dataset...')
     args = parse_args()
 

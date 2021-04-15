@@ -1,14 +1,17 @@
-"""
-@author   Maksim Penkin @MaksimPenkin
-@author   Oleg Khokhlov @okhokhlov
-"""
+# """
+# @author   Maksim Penkin @MaksimPenkin
+# @author   Oleg Khokhlov @okhokhlov
+# """
 
 import torch.nn as nn
 from neural.blocks.layers import ResBlock, ConvBlock, UpSample
 
 
 class DecoderResBlock(nn.Module):
+    """A class to represent a residual decoder."""
+
     def __init__(self, num_filters, num_blocks=4, batch_norm=False):
+        """Constructor method."""
         super().__init__()
 
         self.num_filters = num_filters
@@ -20,6 +23,11 @@ class DecoderResBlock(nn.Module):
             self.add_module(f"resblock_{i}", ResBlock(self.num_filters * 2**(i-1), batch_norm=self.batch_norm))
 
     def forward(self, acts):
+        """Method for forward pass.
+
+        :param acts: list of activations from encoder
+        :return y: output tensor
+        """
         y = acts[-1]
         for i in range(self.num_blocks, 0, -1):
             left = acts[i-1]
@@ -30,7 +38,10 @@ class DecoderResBlock(nn.Module):
 
 
 class DecoderConvBlock(nn.Module):
+    """A class to represent a convolutional decoder."""
+
     def __init__(self, num_filters, num_blocks=4, batch_norm=False):
+        """Constructor method."""
         super().__init__()
 
         self.num_filters = num_filters
@@ -42,6 +53,11 @@ class DecoderConvBlock(nn.Module):
             self.add_module(f"convblock_{i}", ConvBlock(self.num_filters * 2**(i-1), batch_norm=self.batch_norm))
 
     def forward(self, acts):
+        """Method for forward pass.
+
+        :param acts: list of activations from encoder
+        :return y: output tensor
+        """
         y = acts[-1]
         for i in range(self.num_blocks, 0, -1):
             left = acts[i-1]

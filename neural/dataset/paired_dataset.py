@@ -1,7 +1,7 @@
-"""
-@author   Maksim Penkin @MaksimPenkin
-@author   Oleg Khokhlov @okhokhlov
-"""
+# """
+# @author   Maksim Penkin @MaksimPenkin
+# @author   Oleg Khokhlov @okhokhlov
+# """
 
 import os
 import numpy as np
@@ -12,15 +12,24 @@ from torch.utils.data import Dataset
 
 
 class SegmDataset(Dataset):
+    """A class to represent a segmentation dataset."""
+
     def __init__(self, csv_file, root_dir, transform=None):
+        """Constructor method."""
         self.csv_data = pd.read_csv(csv_file)
         self.root_dir = root_dir
         self.transform = transform
 
     def __len__(self):
+        """Method for getting number of image-pairs in dataset."""
         return len(self.csv_data)
 
     def __getitem__(self, idx):
+        """Method for getting current desired image-pair.
+
+        :param idx: index of the desired image-pair
+        :return sample: a dictionary {'image': img, 'mask': mask}
+        """
         img_name = os.path.join(self.root_dir,
                                 self.csv_data.iloc[idx, 0])
         mask_name = os.path.join(self.root_dir,

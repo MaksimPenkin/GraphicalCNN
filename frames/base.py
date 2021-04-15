@@ -1,21 +1,28 @@
-"""
-@author   Maksim Penkin @MaksimPenkin
-@author   Oleg Khokhlov @okhokhlov
-"""
+# """
+# @author   Maksim Penkin @MaksimPenkin
+# @author   Oleg Khokhlov @okhokhlov
+# """
 
 import tkinter as tk
 
 
 class BaseFrame(tk.Frame):
+    """A class to represent a base frame."""
+
     def __init__(self, master=None, **kwargs):
+        """Constructor method."""
         super().__init__(master, **kwargs)
 
     def createWidgets(self):
+        """Method for creating widgets."""
         pass
 
 
 class BaseGridFrame(tk.Frame):
+    """A class to represent a base frame with grid."""
+
     def __init__(self, master=None, **kwargs):
+        """Constructor method."""
         super().__init__(master, **kwargs)
         self.master.rowconfigure(0, weight=1)
         self.master.columnconfigure(0, weight=1)
@@ -26,4 +33,5 @@ class BaseGridFrame(tk.Frame):
         self.grid(sticky='NEWS')
 
     def createWidgets(self):
+        """Method for creating widgets."""
         pass

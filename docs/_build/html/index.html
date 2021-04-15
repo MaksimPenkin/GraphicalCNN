@@ -1,0 +1,699 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to GraphicalCNN’s documentation! &#8212; GraphicalCNN 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="GraphicalCNN" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-graphicalcnn-s-documentation">
+<h1><a class="toc-backref" href="#id1">Welcome to GraphicalCNN’s documentation!</a><a class="headerlink" href="#welcome-to-graphicalcnn-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">GraphicalCNN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="run.html">run module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#welcome-to-graphicalcnn-s-documentation" id="id1">Welcome to GraphicalCNN’s documentation!</a></li>
+<li><a class="reference internal" href="#module-frames.base" id="id2">Frames</a></li>
+<li><a class="reference internal" href="#module-widgets.entry" id="id3">Widgets</a></li>
+<li><a class="reference internal" href="#module-neural.runner" id="id4">Neural</a></li>
+<li><a class="reference internal" href="#module-utility.utils" id="id5">Utils</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-frames.base">
+<span id="frames"></span><h1><a class="toc-backref" href="#id2">Frames</a><a class="headerlink" href="#module-frames.base" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="frames.base.BaseFrame">
+<em class="property">class </em><code class="descclassname">frames.base.</code><code class="descname">BaseFrame</code><span class="sig-paren">(</span><em>master=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#frames.base.BaseFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a base frame.</p>
+<dl class="method">
+<dt id="frames.base.BaseFrame.createWidgets">
+<code class="descname">createWidgets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#frames.base.BaseFrame.createWidgets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for creating widgets.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="frames.base.BaseGridFrame">
+<em class="property">class </em><code class="descclassname">frames.base.</code><code class="descname">BaseGridFrame</code><span class="sig-paren">(</span><em>master=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#frames.base.BaseGridFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a base frame with grid.</p>
+<dl class="method">
+<dt id="frames.base.BaseGridFrame.createWidgets">
+<code class="descname">createWidgets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#frames.base.BaseGridFrame.createWidgets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for creating widgets.</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-frames.welcome"></span><dl class="class">
+<dt id="frames.welcome.WelcomeFrame">
+<em class="property">class </em><code class="descclassname">frames.welcome.</code><code class="descname">WelcomeFrame</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#frames.welcome.WelcomeFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a welcome window.</p>
+<dl class="method">
+<dt id="frames.welcome.WelcomeFrame.createWidgets">
+<code class="descname">createWidgets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#frames.welcome.WelcomeFrame.createWidgets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for creating widgets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="frames.welcome.WelcomeFrame.resizer">
+<code class="descname">resizer</code><span class="sig-paren">(</span><em>e</em><span class="sig-paren">)</span><a class="headerlink" href="#frames.welcome.WelcomeFrame.resizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for resizing background image.</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-frames.setting"></span><dl class="class">
+<dt id="frames.setting.SettingFrame">
+<em class="property">class </em><code class="descclassname">frames.setting.</code><code class="descname">SettingFrame</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#frames.setting.SettingFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a settings window.</p>
+<dl class="method">
+<dt id="frames.setting.SettingFrame.createWidgets">
+<code class="descname">createWidgets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#frames.setting.SettingFrame.createWidgets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for creating widgets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="frames.setting.SettingFrame.train">
+<code class="descname">train</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#frames.setting.SettingFrame.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for initiate training lopp.</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-frames.visual"></span><dl class="class">
+<dt id="frames.visual.VisualFrame">
+<em class="property">class </em><code class="descclassname">frames.visual.</code><code class="descname">VisualFrame</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#frames.visual.VisualFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a visual window.</p>
+<dl class="method">
+<dt id="frames.visual.VisualFrame.createWidgets">
+<code class="descname">createWidgets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#frames.visual.VisualFrame.createWidgets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for creating widgets.</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-frames.logs"></span><dl class="class">
+<dt id="frames.logs.LogsFrame">
+<em class="property">class </em><code class="descclassname">frames.logs.</code><code class="descname">LogsFrame</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#frames.logs.LogsFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a logs window.</p>
+<dl class="method">
+<dt id="frames.logs.LogsFrame.createWidgets">
+<code class="descname">createWidgets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#frames.logs.LogsFrame.createWidgets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for creating widgets.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-widgets.entry">
+<span id="widgets"></span><h1><a class="toc-backref" href="#id3">Widgets</a><a class="headerlink" href="#module-widgets.entry" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="widgets.entry.EntryWidget">
+<em class="property">class </em><code class="descclassname">widgets.entry.</code><code class="descname">EntryWidget</code><span class="sig-paren">(</span><em>master</em>, <em>label='EntryName'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#widgets.entry.EntryWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a entry widget.</p>
+<dl class="method">
+<dt id="widgets.entry.EntryWidget.createWidgets">
+<code class="descname">createWidgets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#widgets.entry.EntryWidget.createWidgets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for creating widgets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="widgets.entry.EntryWidget.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#widgets.entry.EntryWidget.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for getting entry value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-widgets.optionmenu"></span><dl class="class">
+<dt id="widgets.optionmenu.OptionMenuWidget">
+<em class="property">class </em><code class="descclassname">widgets.optionmenu.</code><code class="descname">OptionMenuWidget</code><span class="sig-paren">(</span><em>master</em>, <em>options</em>, <em>label='OptionMenuName'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#widgets.optionmenu.OptionMenuWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent an option menu widget.</p>
+<dl class="method">
+<dt id="widgets.optionmenu.OptionMenuWidget.createWidgets">
+<code class="descname">createWidgets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#widgets.optionmenu.OptionMenuWidget.createWidgets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for creating widgets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="widgets.optionmenu.OptionMenuWidget.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#widgets.optionmenu.OptionMenuWidget.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for getting option-menu value.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-neural.runner">
+<span id="neural"></span><h1><a class="toc-backref" href="#id4">Neural</a><a class="headerlink" href="#module-neural.runner" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="neural.runner.Runner">
+<em class="property">class </em><code class="descclassname">neural.runner.</code><code class="descname">Runner</code><span class="sig-paren">(</span><em>batch_size=8</em>, <em>num_epochs=100</em>, <em>arch='ResBlock'</em>, <em>num_filters=8</em>, <em>num_blocks=4</em>, <em>loss='BCE'</em>, <em>opt='Adam'</em>, <em>experiment_name='test_1'</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.runner.Runner" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a runner for choisen CNN</p>
+<dl class="method">
+<dt id="neural.runner.Runner.assert_train_pathes">
+<code class="descname">assert_train_pathes</code><span class="sig-paren">(</span><em>force=False</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.runner.Runner.assert_train_pathes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for creating training pathes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>force</strong> – if set True, overwrite directory in case of existence</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="neural.runner.Runner.get_loss">
+<code class="descname">get_loss</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#neural.runner.Runner.get_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method choosing loss function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="neural.runner.Runner.get_optimizer">
+<code class="descname">get_optimizer</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.runner.Runner.get_optimizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method choosing optimization algorithm.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="neural.runner.Runner.prepare_trainval_dataset">
+<code class="descname">prepare_trainval_dataset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#neural.runner.Runner.prepare_trainval_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for prepating dataset iterators.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="neural.runner.Runner.train">
+<code class="descname">train</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#neural.runner.Runner.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for training loop.</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-neural.models"></span><dl class="class">
+<dt id="neural.models.Generator">
+<em class="property">class </em><code class="descclassname">neural.models.</code><code class="descname">Generator</code><span class="sig-paren">(</span><em>num_filters</em>, <em>num_blocks=4</em>, <em>batch_norm=False</em>, <em>arch='ResBlock'</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.models.Generator" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a generator CNN.</p>
+<dl class="method">
+<dt id="neural.models.Generator.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.models.Generator.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for forward pass.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> – input tensor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return y:</th><td class="field-body">output tensor</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-neural.blocks.embedding"></span><dl class="class">
+<dt id="neural.blocks.embedding.Embedding">
+<em class="property">class </em><code class="descclassname">neural.blocks.embedding.</code><code class="descname">Embedding</code><span class="sig-paren">(</span><em>in_channels</em>, <em>out_channels</em>, <em>batch_norm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.embedding.Embedding" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a embedding block.</p>
+<dl class="method">
+<dt id="neural.blocks.embedding.Embedding.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.embedding.Embedding.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for forward pass.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> – input tensor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return y:</th><td class="field-body">output tensor</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-neural.blocks.encoder"></span><dl class="class">
+<dt id="neural.blocks.encoder.EncoderConvBlock">
+<em class="property">class </em><code class="descclassname">neural.blocks.encoder.</code><code class="descname">EncoderConvBlock</code><span class="sig-paren">(</span><em>num_filters</em>, <em>num_blocks=4</em>, <em>batch_norm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.encoder.EncoderConvBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a convolutional encoder.</p>
+<dl class="method">
+<dt id="neural.blocks.encoder.EncoderConvBlock.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.encoder.EncoderConvBlock.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for forward pass.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> – input tensor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return acts:</th><td class="field-body">list of encoder activations</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="neural.blocks.encoder.EncoderResBlock">
+<em class="property">class </em><code class="descclassname">neural.blocks.encoder.</code><code class="descname">EncoderResBlock</code><span class="sig-paren">(</span><em>num_filters</em>, <em>num_blocks=4</em>, <em>batch_norm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.encoder.EncoderResBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a residual encoder.</p>
+<dl class="method">
+<dt id="neural.blocks.encoder.EncoderResBlock.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.encoder.EncoderResBlock.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for forward pass.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> – input tensor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return acts:</th><td class="field-body">list of encoder activations</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-neural.blocks.decoder"></span><dl class="class">
+<dt id="neural.blocks.decoder.DecoderConvBlock">
+<em class="property">class </em><code class="descclassname">neural.blocks.decoder.</code><code class="descname">DecoderConvBlock</code><span class="sig-paren">(</span><em>num_filters</em>, <em>num_blocks=4</em>, <em>batch_norm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.decoder.DecoderConvBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a convolutional decoder.</p>
+<dl class="method">
+<dt id="neural.blocks.decoder.DecoderConvBlock.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>acts</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.decoder.DecoderConvBlock.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for forward pass.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>acts</strong> – list of activations from encoder</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return y:</th><td class="field-body">output tensor</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="neural.blocks.decoder.DecoderResBlock">
+<em class="property">class </em><code class="descclassname">neural.blocks.decoder.</code><code class="descname">DecoderResBlock</code><span class="sig-paren">(</span><em>num_filters</em>, <em>num_blocks=4</em>, <em>batch_norm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.decoder.DecoderResBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a residual decoder.</p>
+<dl class="method">
+<dt id="neural.blocks.decoder.DecoderResBlock.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>acts</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.decoder.DecoderResBlock.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for forward pass.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>acts</strong> – list of activations from encoder</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return y:</th><td class="field-body">output tensor</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-neural.blocks.restoration"></span><dl class="class">
+<dt id="neural.blocks.restoration.Restoration">
+<em class="property">class </em><code class="descclassname">neural.blocks.restoration.</code><code class="descname">Restoration</code><span class="sig-paren">(</span><em>in_channels</em>, <em>out_channels</em>, <em>batch_norm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.restoration.Restoration" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a restoration block.</p>
+<dl class="method">
+<dt id="neural.blocks.restoration.Restoration.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.restoration.Restoration.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for forward pass.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> – input tensor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return y:</th><td class="field-body">output tensor</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-neural.blocks.layers"></span><dl class="class">
+<dt id="neural.blocks.layers.ConvBlock">
+<em class="property">class </em><code class="descclassname">neural.blocks.layers.</code><code class="descname">ConvBlock</code><span class="sig-paren">(</span><em>num_channels</em>, <em>ksize=3</em>, <em>batch_norm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.layers.ConvBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a convolutional block.</p>
+<dl class="method">
+<dt id="neural.blocks.layers.ConvBlock.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.layers.ConvBlock.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for forward pass.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> – input tensor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return y:</th><td class="field-body">output tensor</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="neural.blocks.layers.ResBlock">
+<em class="property">class </em><code class="descclassname">neural.blocks.layers.</code><code class="descname">ResBlock</code><span class="sig-paren">(</span><em>num_channels</em>, <em>batch_norm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.layers.ResBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a residual block.</p>
+<dl class="method">
+<dt id="neural.blocks.layers.ResBlock.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.layers.ResBlock.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for forward pass.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> – input tensor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return y:</th><td class="field-body">output tensor</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="neural.blocks.layers.UpSample">
+<em class="property">class </em><code class="descclassname">neural.blocks.layers.</code><code class="descname">UpSample</code><span class="sig-paren">(</span><em>num_channels</em>, <em>scale_factor=2</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.layers.UpSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a upsample block.</p>
+<dl class="method">
+<dt id="neural.blocks.layers.UpSample.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>x1</em>, <em>x2</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.layers.UpSample.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for forward pass.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x1</strong> – input tensor to be upsampled</li>
+<li><strong>x2</strong> – input tensor to be summed</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return y:</th><td class="field-body"><p class="first last">output tensor</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="neural.blocks.layers.conv3x3">
+<code class="descclassname">neural.blocks.layers.</code><code class="descname">conv3x3</code><span class="sig-paren">(</span><em>in_channels</em>, <em>out_channels</em>, <em>padding=1</em>, <em>stride=1</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.layers.conv3x3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for convolution with 3x3 kernel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>in_channels</strong> – input number of channels</li>
+<li><strong>out_channels</strong> – resulting number of channels</li>
+<li><strong>padding</strong> – number of pixels to pad tensor</li>
+<li><strong>stride</strong> – stride of convolutional kernel</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return y:</th><td class="field-body"><p class="first last">output tensor</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="neural.blocks.layers.conv5x5">
+<code class="descclassname">neural.blocks.layers.</code><code class="descname">conv5x5</code><span class="sig-paren">(</span><em>in_channels</em>, <em>out_channels</em>, <em>padding=2</em>, <em>stride=1</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.layers.conv5x5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for convolution with 5x5 kernel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>in_channels</strong> – input number of channels</li>
+<li><strong>out_channels</strong> – resulting number of channels</li>
+<li><strong>padding</strong> – number of pixels to pad tensor</li>
+<li><strong>stride</strong> – stride of convolutional kernel</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return y:</th><td class="field-body"><p class="first last">output tensor</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="neural.blocks.layers.conv7x7">
+<code class="descclassname">neural.blocks.layers.</code><code class="descname">conv7x7</code><span class="sig-paren">(</span><em>in_channels</em>, <em>out_channels</em>, <em>padding=3</em>, <em>stride=1</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.blocks.layers.conv7x7" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for convolution with 7x7 kernel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>in_channels</strong> – input number of channels</li>
+<li><strong>out_channels</strong> – resulting number of channels</li>
+<li><strong>padding</strong> – number of pixels to pad tensor</li>
+<li><strong>stride</strong> – stride of convolutional kernel</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return y:</th><td class="field-body"><p class="first last">output tensor</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="module-neural.dataset.paired_dataset"></span><dl class="class">
+<dt id="neural.dataset.paired_dataset.SegmDataset">
+<em class="property">class </em><code class="descclassname">neural.dataset.paired_dataset.</code><code class="descname">SegmDataset</code><span class="sig-paren">(</span><em>csv_file</em>, <em>root_dir</em>, <em>transform=None</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.dataset.paired_dataset.SegmDataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a segmentation dataset.</p>
+</dd></dl>
+
+<span class="target" id="module-neural.dataset.transforms"></span><dl class="class">
+<dt id="neural.dataset.transforms.HorizontalFlipRandom">
+<em class="property">class </em><code class="descclassname">neural.dataset.transforms.</code><code class="descname">HorizontalFlipRandom</code><a class="headerlink" href="#neural.dataset.transforms.HorizontalFlipRandom" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a horizontal flip augmentation.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="neural.dataset.transforms.Resize">
+<em class="property">class </em><code class="descclassname">neural.dataset.transforms.</code><code class="descname">Resize</code><span class="sig-paren">(</span><em>h</em>, <em>w</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.dataset.transforms.Resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a resize augmentation.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="neural.dataset.transforms.Rot90Random">
+<em class="property">class </em><code class="descclassname">neural.dataset.transforms.</code><code class="descname">Rot90Random</code><a class="headerlink" href="#neural.dataset.transforms.Rot90Random" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a rotate90 augmentation.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="neural.dataset.transforms.ScaleRotate">
+<em class="property">class </em><code class="descclassname">neural.dataset.transforms.</code><code class="descname">ScaleRotate</code><span class="sig-paren">(</span><em>s_min=1.0</em>, <em>s_max=1.0</em>, <em>a_min=-5.0</em>, <em>a_max=5.0</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.dataset.transforms.ScaleRotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a scale&amp;rotate augmentation.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="neural.dataset.transforms.ToTensor">
+<em class="property">class </em><code class="descclassname">neural.dataset.transforms.</code><code class="descname">ToTensor</code><a class="headerlink" href="#neural.dataset.transforms.ToTensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a ToTensor augmentation.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="neural.dataset.transforms.VerticalFlipRandom">
+<em class="property">class </em><code class="descclassname">neural.dataset.transforms.</code><code class="descname">VerticalFlipRandom</code><a class="headerlink" href="#neural.dataset.transforms.VerticalFlipRandom" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent a vertical flip augmentation.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-utility.utils">
+<span id="utils"></span><h1><a class="toc-backref" href="#id5">Utils</a><a class="headerlink" href="#module-utility.utils" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="utility.utils.create_folder">
+<code class="descclassname">utility.utils.</code><code class="descname">create_folder</code><span class="sig-paren">(</span><em>folder</em>, <em>force=False</em>, <em>raise_except_if_exists=True</em><span class="sig-paren">)</span><a class="headerlink" href="#utility.utils.create_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for creating folder.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>folder</strong> – path to folder to be created</li>
+<li><strong>force</strong> – if True, overwrite directory to be created in case of existence</li>
+<li><strong>raise_except_if_exists</strong> – if True, raise exception in case of directory existence</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>Exception</strong> – exception is raised if trying to create folder which exists</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="utility.utils.delete_contents_folder">
+<code class="descclassname">utility.utils.</code><code class="descname">delete_contents_folder</code><span class="sig-paren">(</span><em>folder</em><span class="sig-paren">)</span><a class="headerlink" href="#utility.utils.delete_contents_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for deleting all contents of folder.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>f</strong> – path to folder to be deleted with all contents</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="utility.utils.delete_file_folder">
+<code class="descclassname">utility.utils.</code><code class="descname">delete_file_folder</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#utility.utils.delete_file_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for deleting file or folder.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>f</strong> – path to folder to be deleted</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – exception is raised if failed to delete</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="module-utility.generate_toy_dataset"></span><dl class="function">
+<dt id="utility.generate_toy_dataset.check_positive_int">
+<code class="descclassname">utility.generate_toy_dataset.</code><code class="descname">check_positive_int</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#utility.generate_toy_dataset.check_positive_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for checking value to be positive integer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – input value</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> – exception is raised if value is not positive</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return ivalue:</th><td class="field-body">resulting value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="utility.generate_toy_dataset.parse_args">
+<code class="descclassname">utility.generate_toy_dataset.</code><code class="descname">parse_args</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utility.generate_toy_dataset.parse_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for parsing args.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="modules.html" title="next chapter">GraphicalCNN</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, MaksimPenkin&OlegKhokhlov.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

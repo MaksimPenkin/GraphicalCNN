@@ -1,7 +1,7 @@
-"""
-@author   Maksim Penkin @MaksimPenkin
-@author   Oleg Khokhlov @okhokhlov
-"""
+# """
+# @author   Maksim Penkin @MaksimPenkin
+# @author   Oleg Khokhlov @okhokhlov
+# """
 
 import tkinter as tk
 from frames.base import BaseGridFrame
@@ -11,7 +11,10 @@ from neural.runner import Runner
 
 
 class SettingFrame(BaseGridFrame):
+    """A class to represent a settings window."""
+
     def __init__(self, *args, **kwargs):
+        """Constructor method."""
         super().__init__(*args, **kwargs)
         for i in range(4):
             self.rowconfigure(i, weight=1)
@@ -20,6 +23,7 @@ class SettingFrame(BaseGridFrame):
         self.createWidgets()
 
     def createWidgets(self):
+        """Method for creating widgets."""
         architectureList = ('ConvBlock', 'ResBlock')
         lossList = ('BCE', 'CrossEntropy')
         optimizeList = ('Adam', 'SGD')
@@ -43,6 +47,7 @@ class SettingFrame(BaseGridFrame):
         self.trainButton.grid(row=3, column=0)
 
     def train(self):
+        """Method for initiate training lopp."""
         batch_size_curr = int(self.batch_size_box.get()) if self.batch_size_box.get() != '' else 8
         num_epoch_curr = int(self.epoch_number_box.get()) if self.epoch_number_box.get() != '' else 100
         arch_curr = str(self.architectureOM.get())

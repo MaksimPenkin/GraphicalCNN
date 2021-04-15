@@ -1,7 +1,7 @@
-"""
-@author   Maksim Penkin @MaksimPenkin
-@author   Oleg Khokhlov @okhokhlov
-"""
+# """
+# @author   Maksim Penkin @MaksimPenkin
+# @author   Oleg Khokhlov @okhokhlov
+# """
 
 import tkinter as tk
 from frames.base import BaseGridFrame
@@ -12,7 +12,10 @@ from frames.logs import LogsFrame
 
 
 class MainFrame(BaseGridFrame):
+    """A class to represent a main window."""
+
     def __init__(self, *args, **kwargs):
+        """Constructor method."""
         super().__init__(*args, **kwargs)
         for i in range(3):
             self.rowconfigure(i, weight=1)
@@ -21,6 +24,7 @@ class MainFrame(BaseGridFrame):
         self.createWidgets()
 
     def createWidgets(self):
+        """Method for creating widgets."""
         self.settingButton = tk.Button(self,
                                        text='Settings',
                                        command=lambda: self.show_frame(SettingFrame))
@@ -54,6 +58,10 @@ class MainFrame(BaseGridFrame):
         self.show_frame(WelcomeFrame)
 
     def show_frame(self, choice):
+        """Method for switching between frames.
+
+        :param choice: chosen frame
+        """
         self.allFrames[choice].tkraise()
 
 

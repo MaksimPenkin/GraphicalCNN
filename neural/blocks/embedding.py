@@ -1,14 +1,17 @@
-"""
-@author   Maksim Penkin @MaksimPenkin
-@author   Oleg Khokhlov @okhokhlov
-"""
+# """
+# @author   Maksim Penkin @MaksimPenkin
+# @author   Oleg Khokhlov @okhokhlov
+# """
 
 import torch.nn as nn
 from neural.blocks.layers import conv3x3
 
 
 class Embedding(nn.Module):
+    """A class to represent a embedding block."""
+
     def __init__(self, in_channels, out_channels, batch_norm=False):
+        """Constructor method."""
         super().__init__()
 
         self.in_channels = in_channels
@@ -21,6 +24,11 @@ class Embedding(nn.Module):
         self.relu = nn.ReLU()
 
     def forward(self, x):
+        """Method for forward pass.
+
+        :param x: input tensor
+        :return y: output tensor
+        """
         x = self.conv(x)
         if self.batch_norm:
             x = self.bn(x)
