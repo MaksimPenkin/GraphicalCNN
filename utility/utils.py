@@ -1,6 +1,6 @@
-""" 
- @author   Maksim Penkin @MaksimPenkin
- @author   Oleg Khokhlov @okhokhlov
+"""
+@author   Maksim Penkin @MaksimPenkin
+@author   Oleg Khokhlov @okhokhlov
 """
 
 import os
@@ -16,10 +16,12 @@ def delete_file_folder(f):
     except Exception as e:
         print('utility.utils.py: def delete_file_folder(...): error: Failed to delete %s. Reason: %s' % (f, e))
 
+
 def delete_contents_folder(folder):
     for filename in os.listdir(folder):
         file_path = os.path.join(folder, filename)
         delete_file_folder(file_path)
+
 
 def create_folder(folder, force=False, raise_except_if_exists=True):
     if not os.path.exists(folder):
@@ -29,6 +31,5 @@ def create_folder(folder, force=False, raise_except_if_exists=True):
             delete_contents_folder(folder)
         else:
             if raise_except_if_exists:
-                raise Exception('utility.utils.py: def create_folder(...): error: directory {} exists. In order to overwrite it set force=True'.format(folder))
-
-
+                raise Exception('utility.utils.py: def create_folder(...): error: directory {} exists.'
+                                'In order to overwrite it set force=True'.format(folder))

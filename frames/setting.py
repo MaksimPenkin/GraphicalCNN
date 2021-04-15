@@ -1,6 +1,6 @@
-""" 
- @author   Maksim Penkin @MaksimPenkin
- @author   Oleg Khokhlov @okhokhlov
+"""
+@author   Maksim Penkin @MaksimPenkin
+@author   Oleg Khokhlov @okhokhlov
 """
 
 import tkinter as tk
@@ -12,7 +12,7 @@ from neural.runner import Runner
 
 class SettingFrame(BaseGridFrame):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)        
+        super().__init__(*args, **kwargs)
         for i in range(4):
             self.rowconfigure(i, weight=1)
         for j in range(3):
@@ -50,11 +50,9 @@ class SettingFrame(BaseGridFrame):
         opt_curr = str(self.optimizeOM.get())
 
         r = Runner(batch_size=batch_size_curr,
-                    num_epochs=num_epoch_curr,
-                    arch=arch_curr,
-                    loss=loss_curr,
-                    opt=opt_curr)
+                   num_epochs=num_epoch_curr,
+                   arch=arch_curr,
+                   loss=loss_curr,
+                   opt=opt_curr)
 
         r.train()
-
-

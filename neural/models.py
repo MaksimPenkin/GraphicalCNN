@@ -1,11 +1,9 @@
-""" 
- @author   Maksim Penkin @MaksimPenkin
- @author   Oleg Khokhlov @okhokhlov
+"""
+@author   Maksim Penkin @MaksimPenkin
+@author   Oleg Khokhlov @okhokhlov
 """
 
-import torch
 import torch.nn as nn
-import torch.nn.functional as F
 from neural.blocks.embedding import Embedding
 from neural.blocks.encoder import EncoderResBlock, EncoderConvBlock
 from neural.blocks.decoder import DecoderResBlock, DecoderConvBlock
@@ -15,7 +13,7 @@ from neural.blocks.restoration import Restoration
 class Generator(nn.Module):
     def __init__(self, num_filters, num_blocks=4, batch_norm=False, arch='ResBlock'):
         super().__init__()
-        
+
         self.num_filters = num_filters
         self.num_blocks = num_blocks
         self.batch_norm = batch_norm
@@ -37,5 +35,3 @@ class Generator(nn.Module):
         y = self.restore(y)
 
         return y
-
-

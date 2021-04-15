@@ -1,18 +1,19 @@
-""" 
- @author   Maksim Penkin @MaksimPenkin
- @author   Oleg Khokhlov @okhokhlov
+"""
+@author   Maksim Penkin @MaksimPenkin
+@author   Oleg Khokhlov @okhokhlov
 """
 
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
 
 def conv3x3(in_channels, out_channels, padding=1, stride=1):
     return nn.Conv2d(in_channels, out_channels, 3, padding=padding, stride=stride)
 
+
 def conv5x5(in_channels, out_channels, padding=2, stride=1):
     return nn.Conv2d(in_channels, out_channels, 5, padding=padding, stride=stride)
+
 
 def conv7x7(in_channels, out_channels, padding=3, stride=1):
     return nn.Conv2d(in_channels, out_channels, 7, padding=padding, stride=stride)
@@ -29,25 +30,25 @@ class ResBlock(nn.Module):
             self.bn1 = nn.BatchNorm2d(self.num_channels)
         self.relu1 = nn.ReLU()
         self.conv1 = conv3x3(self.num_channels, self.num_channels)
-        
+
         if self.batch_norm:
             self.bn2 = nn.BatchNorm2d(self.num_channels)
         self.relu2 = nn.ReLU()
         self.conv2 = conv3x3(self.num_channels, self.num_channels)
-        
+
     def forward(self, x):
         original_x = x
-        
+
         if self.batch_norm:
             x = self.bn1(x)
         x = self.relu1(x)
         x = self.conv1(x)
-        
+
         if self.batch_norm:
             x = self.bn2(x)
         x = self.relu2(x)
         x = self.conv2(x)
-        
+
         return x + original_x
 
 
@@ -71,7 +72,7 @@ class ConvBlock(nn.Module):
         elif self.ksize == 7:
             self.conv = conv7x7(self.num_channels, self.num_channels)
 
-    def forward(self, x):        
+    def forward(self, x):
         if self.batch_norm:
             x = self.bn(x)
         x = self.relu(x)
@@ -84,14 +85,12 @@ class UpSample(nn.Module):
     def __init__(self, num_channels, scale_factor=2):
         super().__init__()
         self.num_channels = num_channels
-        self.scale_factor = scale_factor       
+        self.scale_factor = scale_factor
         self.up = torch.nn.Upsample(scale_factor=self.scale_factor)
         self.conv = conv3x3(self.num_channels, self.num_channels//2)
-    
+
     def forward(self, x1, x2):
         x1 = self.conv(self.up(x1))
         x = x1+x2
-        
+
         return x
-
-

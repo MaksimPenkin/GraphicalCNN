@@ -1,6 +1,6 @@
-""" 
- @author   Maksim Penkin @MaksimPenkin
- @author   Oleg Khokhlov @okhokhlov
+"""
+@author   Maksim Penkin @MaksimPenkin
+@author   Oleg Khokhlov @okhokhlov
 """
 
 import tkinter as tk
@@ -16,7 +16,7 @@ class BaseFrame(tk.Frame):
 
 class BaseGridFrame(tk.Frame):
     def __init__(self, master=None, **kwargs):
-        super().__init__(master, **kwargs)        
+        super().__init__(master, **kwargs)
         self.master.rowconfigure(0, weight=1)
         self.master.columnconfigure(0, weight=1)
         for i in range(1):
@@ -27,5 +27,3 @@ class BaseGridFrame(tk.Frame):
 
     def createWidgets(self):
         pass
-
-

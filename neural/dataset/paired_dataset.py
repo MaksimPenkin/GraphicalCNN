@@ -1,14 +1,13 @@
-""" 
- @author   Maksim Penkin @MaksimPenkin
- @author   Oleg Khokhlov @okhokhlov
+"""
+@author   Maksim Penkin @MaksimPenkin
+@author   Oleg Khokhlov @okhokhlov
 """
 
 import os
 import numpy as np
-import pandas as pd  
-import cv2 
+import pandas as pd
+import cv2
 
-import torch
 from torch.utils.data import Dataset
 
 
@@ -25,20 +24,18 @@ class SegmDataset(Dataset):
         img_name = os.path.join(self.root_dir,
                                 self.csv_data.iloc[idx, 0])
         mask_name = os.path.join(self.root_dir,
-                                self.csv_data.iloc[idx, 1])
-        
+                                 self.csv_data.iloc[idx, 1])
+
         image = cv2.imread(img_name)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         image = image.astype(np.float32) / 255.
-        
+
         mask = cv2.imread(mask_name, 0).astype(np.float32) / 255.
-        mask = mask[...,np.newaxis]
-        
+        mask = mask[..., np.newaxis]
+
         sample = {'image': image, 'mask': mask}
 
         if self.transform:
             sample = self.transform(sample)
 
         return sample
-
-
