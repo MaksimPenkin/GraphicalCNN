@@ -24,4 +24,7 @@ class EntryWidget(BaseFrame):
         self.text = tk.Entry(self)
         self.text.grid(row=0, column=1)
 
+    def get(self):
+        return self.text.get()
+
 

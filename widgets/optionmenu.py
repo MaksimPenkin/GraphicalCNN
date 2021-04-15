@@ -26,4 +26,7 @@ class OptionMenuWidget(BaseFrame):
         self.om = tk.OptionMenu(self, self.var, *self.option_list)
         self.om.grid(row=0, column=1)
 
+    def get(self):
+        return self.var.get()
+
 
