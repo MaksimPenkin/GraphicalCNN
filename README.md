@@ -11,6 +11,22 @@ Python==3.8.7
 Графический интерфейс должен предоставлять возможность контролировать ход обучения, например
 через графическое отображение кривых выбранных функций потерь.
 
+## Запуск приложения
+1. Создание тренировочного датасета: python utility/generate_toy_dataset.py --num_images=1000 --path_out data/train
+2. Создание валидационного датасета: python utility/generate_toy_dataset.py --num_images=50 --path_out data/val
+3. python run.py
+
+## Проверка на flake8 и pydocstyle
+Run in CMD: flake8
+Run in CMD: pydocstyle
+
+## Создание документации
+1. cd docs
+2. sphinx-apidoc -o . ..
+3. make html
+4. Документация будет в "docs/_build/html/index.html"
+
+
 ## Интерфейсная модель
 ![alt text](imgs/img1.png)
 ![alt text](imgs/img2.png)
