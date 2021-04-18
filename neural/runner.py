@@ -90,7 +90,7 @@ class Runner:
         """Method choosing optimization algorithm."""
         if self.opt == 'Adam':
             return optim.Adam(model.parameters(), lr=0.001)
-        elif  self.opt == 'SGD':
+        elif self.opt == 'SGD':
             return optim.SGD(model.parameters(), lr=0.001)
 
     def train(self):

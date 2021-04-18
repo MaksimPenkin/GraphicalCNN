@@ -34,6 +34,7 @@ class SettingFrame(BaseGridFrame):
 
         self.batch_size_box = EntryWidget(self, 'Batch size')
         self.epoch_number_box = EntryWidget(self, 'Epoch number')
+        self.experiment_name_box = EntryWidget(self, 'Experiment name')
 
         self.trainButton = tk.Button(self, text='Train!', command=self.train, bg='green3', activebackground='green4')
 
@@ -43,6 +44,7 @@ class SettingFrame(BaseGridFrame):
 
         self.batch_size_box.grid(row=0, column=2)
         self.epoch_number_box.grid(row=1, column=2)
+        self.experiment_name_box.grid(row=2, column=2)
 
         self.trainButton.grid(row=3, column=0)
 
@@ -53,11 +55,13 @@ class SettingFrame(BaseGridFrame):
         arch_curr = str(self.architectureOM.get())
         loss_curr = str(self.lossOM.get())
         opt_curr = str(self.optimizeOM.get())
+        experiment_name_curr = str(self.experiment_name_box.get()) if self.experiment_name_box.get() != '' else 'test_1'
 
         r = Runner(batch_size=batch_size_curr,
                    num_epochs=num_epoch_curr,
                    arch=arch_curr,
                    loss=loss_curr,
-                   opt=opt_curr)
+                   opt=opt_curr,
+                   experiment_name=experiment_name_curr)
 
         r.train()
