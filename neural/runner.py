@@ -39,7 +39,7 @@ class Runner:
         assert self.arch in ['ResBlock', 'ConvBlock']
         assert self.num_filters > 0
         assert self.num_blocks > 0
-        assert self.loss in ['BCE', 'CrossEntropy']
+        assert self.loss in ['BCE', 'L2']
         assert self.opt in ['Adam', 'SGD']
 
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -81,11 +81,17 @@ class Runner:
 
     def get_loss(self):
         """Method choosing loss function."""
-        return torch.nn.BCEWithLogitsLoss()
+        if self.loss == 'BCE':
+            return torch.nn.BCEWithLogitsLoss()
+        elif self.loss == 'L2':
+            return torch.nn.MSELoss()
 
     def get_optimizer(self, model):
         """Method choosing optimization algorithm."""
-        return optim.Adam(model.parameters(), lr=0.001)
+        if self.opt == 'Adam':
+            return optim.Adam(model.parameters(), lr=0.001)
+        elif  self.opt == 'SGD':
+            return optim.SGD(model.parameters(), lr=0.001)
 
     def train(self):
         """Method for training loop."""

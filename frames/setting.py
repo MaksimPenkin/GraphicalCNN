@@ -25,7 +25,7 @@ class SettingFrame(BaseGridFrame):
     def createWidgets(self):
         """Method for creating widgets."""
         architectureList = ('ConvBlock', 'ResBlock')
-        lossList = ('BCE', 'CrossEntropy')
+        lossList = ('BCE', 'L2')
         optimizeList = ('Adam', 'SGD')
 
         self.architectureOM = OptionMenuWidget(self, architectureList, 'Architecture')
