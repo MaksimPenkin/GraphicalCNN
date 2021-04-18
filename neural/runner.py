@@ -34,13 +34,13 @@ class Runner:
         self.opt = opt
         self.experiment_name = experiment_name
 
-        assert self.batch_size > 0
-        assert self.num_epochs > 0
-        assert self.arch in ['ResBlock', 'ConvBlock']
-        assert self.num_filters > 0
-        assert self.num_blocks > 0
-        assert self.loss in ['BCE', 'L2']
-        assert self.opt in ['Adam', 'SGD']
+        assert self.batch_size > 0, 'Batch size should be positive'
+        assert self.num_epochs > 0, 'Number of epochs should be positive'
+        assert self.arch in ['ResBlock', 'ConvBlock'], 'Architecture should be ResBlock or ConvBlock'
+        assert self.num_filters > 0, 'Number of filters should be positive'
+        assert self.num_blocks > 0, 'Number of blocks should be positive'
+        assert self.loss in ['BCE', 'L2'], 'Loss should be BCE (binary cross entropy) or L2'
+        assert self.opt in ['Adam', 'SGD'], 'Optimizer should be Adam or SGD'
 
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
