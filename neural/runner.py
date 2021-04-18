@@ -11,6 +11,7 @@ import torch
 from torch.utils.data import DataLoader
 from torchvision import transforms
 import torch.optim as optim
+from torch.utils.tensorboard import SummaryWriter
 
 from neural.models import Generator
 from neural.dataset.paired_dataset import SegmDataset
@@ -50,7 +51,11 @@ class Runner:
         """
         self.path_data = './data'
         self.path_experiment = os.path.join('./checkpoints', self.experiment_name)
+        self.path_experiment = os.path.join('./checkpoints', self.experiment_name)
+        self.path_experiment_logs = os.path.join(self.path_experiment, 'logs')
+
         utils.create_folder(self.path_experiment, force=True)
+        utils.create_folder(self.path_experiment_logs, force=True)
 
     def prepare_trainval_dataset(self):
         """Method for prepating dataset iterators."""
@@ -96,6 +101,8 @@ class Runner:
         criterion = self.get_loss()
         optimizer = self.get_optimizer(model)
 
+        writer = SummaryWriter(log_dir=self.path_experiment_logs)
+
         print_freq = 10
         print('[*] Training is starting...')
         for epoch in range(self.num_epochs):
@@ -122,8 +129,7 @@ class Runner:
                           'loss: {3:.8f}'.format(epoch+1, i+1, len(self.trainloader), running_loss / print_freq))
                     running_loss = 0.0
                 elif (i == len(self.trainloader) - 1):
-                    pass
-                    # writer.add_scalar("Loss/train", epoch_loss / len(trainloader), epoch)
+                    writer.add_scalar("Loss/train", epoch_loss / len(self.trainloader), epoch)
             torch.save(model.state_dict(), os.path.join(self.path_experiment, "model_e{}.pth".format(epoch+1)))
 
             print('[*] Validating...')
@@ -137,10 +143,10 @@ class Runner:
                     print('[*] Validate Epoch {0:3} '
                           'loss: {1:.4f}'.format(epoch+1, loss.item()))
                     val_epoch_loss += loss.item()
-                # writer.add_scalar("Loss/val", val_epoch_loss / len(valloader), epoch)
+                writer.add_scalar("Loss/val", val_epoch_loss / len(self.valloader), epoch)
 
             print('[*] ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S') +
                   ': Time for epoch {0} is {1:.2f}'.format(epoch+1, time.time()-start))
 
-        # writer.close()
+        writer.close()
         print('Finished Training')

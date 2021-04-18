@@ -15,6 +15,9 @@ Python==3.8.7
 1. Создание тренировочного датасета: python utility/generate_toy_dataset.py --num_images=1000 --path_out data/train
 2. Создание валидационного датасета: python utility/generate_toy_dataset.py --num_images=50 --path_out data/val
 3. python run.py
+4. Для просмотра кривых обучения:
+* cd EXPERIMENT_PATH
+* tensorboard --logdir "logs" --host localhost
 
 ## Проверка на flake8 и pydocstyle
 Run in CMD: flake8
@@ -34,9 +37,9 @@ Run in CMD: pydocstyle
 ![alt text](imgs/img4.png)
 
 ## Программные возможности
-* выбор базовой архитектуры (англ. backbone architecture), например: ResNet, MobileNet, DenseNet и др.;
-* выбор целевой функции потерь, например: L2, CrossEntropy;
-* выбор метода оптимизации модели, например; ADAM, RMSProp, AdaGrad, SGD;
+* выбор базового блока UNet архитектуры: 'ResBlock', 'ConvBlock';
+* выбор целевой функции потерь, например: 'BCE', 'CrossEntropy';
+* выбор метода оптимизации модели, например; ADAM, SGD;
 * число эпох обучения, размер подаваемого в сеть пакета изображений (англ. batch size)
 и прочие гиперпараметры для обучения свёрточных моделей.
 
@@ -44,4 +47,5 @@ Run in CMD: pydocstyle
 * Графический интерфейс: TkInter;
 * Обучение глубоких нейронных сетей: PyTorch;
 * Работа с изображениями: OpenCV, NumPy;
-* Анализаторы качества кода: flake8, pydocstyle.
+* Анализаторы качества кода: flake8, pydocstyle;
+* Создание документации: sphinx.
