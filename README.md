@@ -11,6 +11,14 @@ Python==3.8.7
 Графический интерфейс должен предоставлять возможность контролировать ход обучения, например
 через графическое отображение кривых выбранных функций потерь.
 
+## Установка PyTorch
+1. https://pytorch.org/get-started/previous-versions/
+2. В проекте используется версия 1.7.1+cu110
+3. Если на Вашем компьютере установлена GPU и CUDA 11.0.3_451.82_win10, то
+* pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
+4. Если на Вашем компьютере только CPU или не установлена CUDA, то
+* pip install torch==1.7.1+cpu torchvision==0.8.2+cpu torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
+
 ## Запуск приложения
 1. Создание тренировочного датасета: python utility/generate_toy_dataset.py --num_images=1000 --path_out data/train
 2. Создание валидационного датасета: python utility/generate_toy_dataset.py --num_images=50 --path_out data/val
