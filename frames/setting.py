@@ -57,14 +57,17 @@ class SettingFrame(BaseGridFrame):
             arch_curr = str(self.architectureOM.get())
             loss_curr = str(self.lossOM.get())
             opt_curr = str(self.optimizeOM.get())
-            experiment_name_curr = str(self.experiment_name_box.get()) if self.experiment_name_box.get() != '' else 'test_1'
+            if self.experiment_name_box.get() != '':
+                experiment_name_curr = str(self.experiment_name_box.get())
+            else:
+                experiment_name_curr = 'test_1'
 
             r = Runner(batch_size=batch_size_curr,
-                    num_epochs=num_epoch_curr,
-                    arch=arch_curr,
-                    loss=loss_curr,
-                    opt=opt_curr,
-                    experiment_name=experiment_name_curr)
+                       num_epochs=num_epoch_curr,
+                       arch=arch_curr,
+                       loss=loss_curr,
+                       opt=opt_curr,
+                       experiment_name=experiment_name_curr)
 
             r.train()
         except Exception as e:
