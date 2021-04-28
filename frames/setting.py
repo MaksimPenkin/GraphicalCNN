@@ -57,6 +57,7 @@ class SettingFrame(BaseGridFrame):
 
         self.trainButton.grid(row=3, column=0)
         self.stopButton.grid(row=3, column=2)
+        self.stop_event = None
 
     def train(self):
         """Method for initiate training loop."""
@@ -85,4 +86,5 @@ class SettingFrame(BaseGridFrame):
 
     def stop(self):
         """Method for breaking training loop."""
-        self.stop_event.set()
+        if self.stop_event is not None:
+            self.stop_event.set()
