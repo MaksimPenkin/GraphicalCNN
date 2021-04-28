@@ -118,9 +118,15 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="frames.setting.SettingFrame.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#frames.setting.SettingFrame.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for breaking training loop.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="frames.setting.SettingFrame.train">
 <code class="descname">train</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#frames.setting.SettingFrame.train" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method for initiate training lopp.</p>
+<dd><p>Method for initiate training loop.</p>
 </dd></dl>
 
 </dd></dl>
@@ -229,8 +235,16 @@
 
 <dl class="method">
 <dt id="neural.runner.Runner.train">
-<code class="descname">train</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#neural.runner.Runner.train" title="Permalink to this definition">¶</a></dt>
+<code class="descname">train</code><span class="sig-paren">(</span><em>stop_event</em><span class="sig-paren">)</span><a class="headerlink" href="#neural.runner.Runner.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method for training loop.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stop_event</strong> – if stop_event is raised, training thread is stopped</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

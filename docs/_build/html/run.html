@@ -44,6 +44,13 @@
   <div class="section" id="module-run">
 <span id="run-module"></span><h1>run module<a class="headerlink" href="#module-run" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
+<dt id="run.IORedirector">
+<em class="property">class </em><code class="descclassname">run.</code><code class="descname">IORedirector</code><span class="sig-paren">(</span><em>text_area</em><span class="sig-paren">)</span><a class="headerlink" href="#run.IORedirector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>A general class for redirecting I/O to this Text widget.</p>
+</dd></dl>
+
+<dl class="class">
 <dt id="run.MainFrame">
 <em class="property">class </em><code class="descclassname">run.</code><code class="descname">MainFrame</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#run.MainFrame" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="index.html#frames.base.BaseGridFrame" title="frames.base.BaseGridFrame"><code class="xref py py-class docutils literal"><span class="pre">frames.base.BaseGridFrame</span></code></a></p>
@@ -55,6 +62,20 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="run.MainFrame.redirector">
+<code class="descname">redirector</code><span class="sig-paren">(</span><em>inputStr=''</em><span class="sig-paren">)</span><a class="headerlink" href="#run.MainFrame.redirector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for switching stdout to tkinter text box.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>inputStr</strong> – initial string for tkinter text box</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="run.MainFrame.show_frame">
 <code class="descname">show_frame</code><span class="sig-paren">(</span><em>choice</em><span class="sig-paren">)</span><a class="headerlink" href="#run.MainFrame.show_frame" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method for switching between frames.</p>
@@ -63,6 +84,47 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>choice</strong> – chosen frame</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="run.StdoutRedirector">
+<em class="property">class </em><code class="descclassname">run.</code><code class="descname">StdoutRedirector</code><span class="sig-paren">(</span><em>text_area</em><span class="sig-paren">)</span><a class="headerlink" href="#run.StdoutRedirector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#run.IORedirector" title="run.IORedirector"><code class="xref py py-class docutils literal"><span class="pre">run.IORedirector</span></code></a></p>
+<p>A class for redirecting stdout to this Text widget.</p>
+<dl class="method">
+<dt id="run.StdoutRedirector.flush">
+<code class="descname">flush</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#run.StdoutRedirector.flush" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for flushing text_area before exiting application.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>*args</strong> – <p>arguments</p>
+</li>
+<li><strong>**kwargs</strong> – <p>named-arguments</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="run.StdoutRedirector.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>str</em><span class="sig-paren">)</span><a class="headerlink" href="#run.StdoutRedirector.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for writing string to text_area.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>str</strong> – string to write to the text_area</td>
 </tr>
 </tbody>
 </table>
