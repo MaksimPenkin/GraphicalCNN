@@ -28,6 +28,7 @@ class StdoutRedirector(IORedirector):
         :param str: string to write to the text_area
         """
         self.text_area.insert("end", str)
+        self.text_area.see("end")
 
     def flush(self, *args, **kwargs):
         """Method for flushing text_area before exiting application.
