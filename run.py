@@ -11,6 +11,33 @@ from frames.visual import VisualFrame
 from frames.logs import LogsFrame
 
 
+class IORedirector(object):
+    """A general class for redirecting I/O to this Text widget."""
+
+    def __init__(self, text_area):
+        """Constructor method."""
+        self.text_area = text_area
+
+
+class StdoutRedirector(IORedirector):
+    """A class for redirecting stdout to this Text widget."""
+
+    def write(self, str):
+        """Method for writing string to text_area.
+
+        :param str: string to write to the text_area
+        """
+        self.text_area.insert("end", str)
+
+    def flush(self, *args, **kwargs):
+        """Method for flushing text_area before exiting application.
+
+        :param *args: arguments
+        :param **kwargs: named-arguments
+        """
+        self.text_area.delete("1.0", tk.END)
+
+
 class MainFrame(BaseGridFrame):
     """A class to represent a main window."""
 
@@ -64,8 +91,19 @@ class MainFrame(BaseGridFrame):
         """
         self.allFrames[choice].tkraise()
 
+    def redirector(self, inputStr=""):
+        """Method for switching stdout to tkinter text box.
+
+        :param inputStr: initial string for tkinter text box
+        """
+        import sys
+        T = self.allFrames[LogsFrame].text_out
+        sys.stdout = StdoutRedirector(T)
+        T.insert(tk.END, inputStr)
+
 
 if __name__ == '__main__':
     app = MainFrame()
+    app.redirector()
     app.master.title('Graphical CNN App')
     app.mainloop()

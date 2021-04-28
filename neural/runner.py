@@ -93,8 +93,11 @@ class Runner:
         elif self.opt == 'SGD':
             return optim.SGD(model.parameters(), lr=0.001)
 
-    def train(self):
-        """Method for training loop."""
+    def train(self, stop_event):
+        """Method for training loop.
+
+        :param stop_event: if stop_event is raised, training thread is stopped
+        """
         self.assert_train_pathes(force=False)
         self.prepare_trainval_dataset()
 
@@ -110,12 +113,15 @@ class Runner:
         writer = SummaryWriter(log_dir=self.path_experiment_logs)
 
         print_freq = 10
-        print('[*] Training is starting...')
+        print('\n[@@@] Experiment {} is starting...'.format(self.experiment_name))
         for epoch in range(self.num_epochs):
             start = time.time()
             running_loss = 0.0
             epoch_loss = 0.0
             for i, data in enumerate(self.trainloader):
+                if stop_event.is_set():
+                    raise Exception("Training is stopped.")
+
                 img, mask = data['image'].to(self.device), data['mask'].to(self.device)
 
                 optimizer.zero_grad()
@@ -155,4 +161,4 @@ class Runner:
                   ': Time for epoch {0} is {1:.2f}'.format(epoch+1, time.time()-start))
 
         writer.close()
-        print('Finished Training')
+        print('[###] Experiment {} is finished!\n'.format(self.experiment_name))

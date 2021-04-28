@@ -13,13 +13,13 @@ class VisualFrame(BaseGridFrame):
     def __init__(self, *args, **kwargs):
         """Constructor method."""
         super().__init__(*args, **kwargs)
-        for i in range(3):
+        for i in range(1):
             self.rowconfigure(i, weight=1)
-        for j in range(3):
+        for j in range(1):
             self.columnconfigure(j, weight=1)
         self.createWidgets()
 
     def createWidgets(self):
         """Method for creating widgets."""
-        self.label = tk.Label(self, text='TODO Visual Frame')
+        self.label = tk.Label(self, text='Coming soon...')
         self.label.grid(row=0, column=0, sticky='NEWS')

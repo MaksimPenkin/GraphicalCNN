@@ -9,6 +9,7 @@ from frames.base import BaseGridFrame
 from widgets.optionmenu import OptionMenuWidget
 from widgets.entry import EntryWidget
 from neural.runner import Runner
+import threading
 
 
 class SettingFrame(BaseGridFrame):
@@ -37,7 +38,14 @@ class SettingFrame(BaseGridFrame):
         self.epoch_number_box = EntryWidget(self, 'Epoch number')
         self.experiment_name_box = EntryWidget(self, 'Experiment name')
 
-        self.trainButton = tk.Button(self, text='Train!', command=self.train, bg='green3', activebackground='green4')
+        self.trainButton = tk.Button(self, text='Train!',
+                                     command=lambda: threading.Thread(target=self.train).start(),
+                                     bg='green3',
+                                     activebackground='green4')
+        self.stopButton = tk.Button(self, text='Stop!',
+                                    command=self.stop,
+                                    bg='red3',
+                                    activebackground='red4')
 
         self.architectureOM.grid(row=0, column=0)
         self.lossOM.grid(row=1, column=0)
@@ -48,9 +56,11 @@ class SettingFrame(BaseGridFrame):
         self.experiment_name_box.grid(row=2, column=2)
 
         self.trainButton.grid(row=3, column=0)
+        self.stopButton.grid(row=3, column=2)
 
     def train(self):
-        """Method for initiate training lopp."""
+        """Method for initiate training loop."""
+        self.stop_event = threading.Event()
         try:
             batch_size_curr = int(self.batch_size_box.get()) if self.batch_size_box.get() != '' else 8
             num_epoch_curr = int(self.epoch_number_box.get()) if self.epoch_number_box.get() != '' else 100
@@ -69,6 +79,10 @@ class SettingFrame(BaseGridFrame):
                        opt=opt_curr,
                        experiment_name=experiment_name_curr)
 
-            r.train()
+            r.train(self.stop_event)
         except Exception as e:
-            messagebox.showerror("Error", "Error message: " + str(e))
+            messagebox.showerror("E:", "Message: " + str(e))
+
+    def stop(self):
+        """Method for breaking training loop."""
+        self.stop_event.set()
