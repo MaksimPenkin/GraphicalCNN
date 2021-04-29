@@ -39,8 +39,8 @@ class StdoutRedirector(IORedirector):
     def flush(self, *args, **kwargs):
         """Method for flushing text_area before exiting application.
 
-        :param *args: arguments
-        :param **kwargs: named-arguments
+        :param args: arguments
+        :param kwargs: named-arguments
         """
         self.text_area.delete("1.0", tk.END)
 
