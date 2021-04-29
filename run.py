@@ -3,14 +3,18 @@
 # @author   Oleg Khokhlov @okhokhlov
 # """
 
+import argparse
+import os
 import tkinter as tk
 from frames.base import BaseGridFrame
 from frames.welcome import WelcomeFrame
 from frames.setting import SettingFrame
 from frames.visual import VisualFrame
 from frames.logs import LogsFrame
-import argparse
 from localisation import localisation
+
+os.environ['graph_cnn_app_lang'] = "eng"
+lang = os.environ['graph_cnn_app_lang']
 
 
 class IORedirector(object):
@@ -110,11 +114,11 @@ if __name__ == '__main__':
     parser.add_argument("-language", type=str, help="set app language", default="eng")
     args = parser.parse_args()
 
-    global lang
     if args.language in ["rus", "eng"]:
         lang = args.language
     else:
         lang = 'eng'
+    os.environ['graph_cnn_app_lang'] = lang
 
     app = MainFrame()
     app.redirector()

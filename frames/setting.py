@@ -3,6 +3,7 @@
 # @author   Oleg Khokhlov @okhokhlov
 # """
 
+import os
 import tkinter as tk
 from tkinter import messagebox
 from frames.base import BaseGridFrame
@@ -10,6 +11,7 @@ from widgets.optionmenu import OptionMenuWidget
 from widgets.entry import EntryWidget
 from neural.runner import Runner
 import threading
+from localisation import localisation
 
 
 class SettingFrame(BaseGridFrame):
@@ -26,23 +28,25 @@ class SettingFrame(BaseGridFrame):
 
     def createWidgets(self):
         """Method for creating widgets."""
+        lang = os.environ.get('graph_cnn_app_lang')
+
         architectureList = ('ConvBlock', 'ResBlock')
         lossList = ('BCE', 'L2')
         optimizeList = ('Adam', 'SGD')
 
-        self.architectureOM = OptionMenuWidget(self, architectureList, 'Architecture')
-        self.lossOM = OptionMenuWidget(self, lossList, 'Loss')
-        self.optimizeOM = OptionMenuWidget(self, optimizeList, 'Optimizer')
+        self.architectureOM = OptionMenuWidget(self, architectureList, localisation['architecture'][lang])
+        self.lossOM = OptionMenuWidget(self, lossList, localisation['loss'][lang])
+        self.optimizeOM = OptionMenuWidget(self, optimizeList, localisation['optimizer'][lang])
 
-        self.batch_size_box = EntryWidget(self, 'Batch size')
-        self.epoch_number_box = EntryWidget(self, 'Epoch number')
-        self.experiment_name_box = EntryWidget(self, 'Experiment name')
+        self.batch_size_box = EntryWidget(self, localisation['batch size'][lang])
+        self.epoch_number_box = EntryWidget(self, localisation['epoch number'][lang])
+        self.experiment_name_box = EntryWidget(self, localisation['experiment name'][lang])
 
-        self.trainButton = tk.Button(self, text='Train!',
+        self.trainButton = tk.Button(self, text=localisation['train_bt'][lang],
                                      command=lambda: threading.Thread(target=self.train).start(),
                                      bg='green3',
                                      activebackground='green4')
-        self.stopButton = tk.Button(self, text='Stop!',
+        self.stopButton = tk.Button(self, text=localisation['stop_bt'][lang],
                                     command=self.stop,
                                     bg='red3',
                                     activebackground='red4')
