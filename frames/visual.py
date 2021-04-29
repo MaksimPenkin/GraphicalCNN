@@ -3,8 +3,10 @@
 # @author   Oleg Khokhlov @okhokhlov
 # """
 
+import os
 import tkinter as tk
 from frames.base import BaseGridFrame
+from localisation import localisation
 
 
 class VisualFrame(BaseGridFrame):
@@ -21,5 +23,7 @@ class VisualFrame(BaseGridFrame):
 
     def createWidgets(self):
         """Method for creating widgets."""
-        self.label = tk.Label(self, text='Coming soon...')
+
+        lang = os.environ.get('graph_cnn_app_lang')
+        self.label = tk.Label(self, text=localisation['сoming soon'][lang])
         self.label.grid(row=0, column=0, sticky='NEWS')

@@ -15,4 +15,6 @@ localisation = {
     "experiment name": {"eng": "Experiment name", "rus": "Название эксперимента"},
     "train_bt": {"eng": "Train!", "rus": "Начать!"},
     "stop_bt": {"eng": "Stop!", "rus": "Остановить!"},
+
+    "сoming soon": {"eng": "Coming soon...", "rus": "Скоро появится..."}
 }
