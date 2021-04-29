@@ -9,6 +9,8 @@ from frames.welcome import WelcomeFrame
 from frames.setting import SettingFrame
 from frames.visual import VisualFrame
 from frames.logs import LogsFrame
+import argparse
+from localisation import localisation
 
 
 class IORedirector(object):
@@ -54,19 +56,19 @@ class MainFrame(BaseGridFrame):
     def createWidgets(self):
         """Method for creating widgets."""
         self.settingButton = tk.Button(self,
-                                       text='Settings',
+                                       text=localisation['settings'][lang],
                                        command=lambda: self.show_frame(SettingFrame))
         self.visualButton = tk.Button(self,
-                                      text='Visualization',
+                                      text=localisation['visualization'][lang],
                                       command=lambda: self.show_frame(VisualFrame))
         self.logsButton = tk.Button(self,
-                                    text='Logs',
+                                    text=localisation['logs'][lang],
                                     command=lambda: self.show_frame(LogsFrame))
         self.quitButton = tk.Button(self,
-                                    text='Quit',
+                                    text=localisation['quit'][lang],
                                     command=self.master.quit)
         self.homeButton = tk.Button(self,
-                                    text='Home',
+                                    text=localisation['home'][lang],
                                     command=lambda: self.show_frame(WelcomeFrame))
 
         containerFrame = tk.Frame(self)
@@ -104,7 +106,17 @@ class MainFrame(BaseGridFrame):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-language", type=str, help="set app language", default="eng")
+    args = parser.parse_args()
+
+    global lang
+    if args.language in ["rus", "eng"]:
+        lang = args.language
+    else:
+        lang = 'eng'
+
     app = MainFrame()
     app.redirector()
-    app.master.title('Graphical CNN App')
+    app.master.title(localisation['main title'][lang])
     app.mainloop()
