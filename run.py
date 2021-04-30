@@ -3,18 +3,15 @@
 # @author   Oleg Khokhlov @okhokhlov
 # """
 
-import argparse
-import os
 import tkinter as tk
 from frames.base import BaseGridFrame
 from frames.welcome import WelcomeFrame
 from frames.setting import SettingFrame
 from frames.visual import VisualFrame
 from frames.logs import LogsFrame
-from localisation import localisation
+import gettext
 
-os.environ['graph_cnn_app_lang'] = "eng"
-lang = os.environ['graph_cnn_app_lang']
+gettext.install('app', localedir="po")
 
 
 class IORedirector(object):
@@ -60,19 +57,19 @@ class MainFrame(BaseGridFrame):
     def createWidgets(self):
         """Method for creating widgets."""
         self.settingButton = tk.Button(self,
-                                       text=localisation['settings'][lang],
+                                       text=_('Settings'),
                                        command=lambda: self.show_frame(SettingFrame))
         self.visualButton = tk.Button(self,
-                                      text=localisation['visualization'][lang],
+                                      text=_('Visualization'),
                                       command=lambda: self.show_frame(VisualFrame))
         self.logsButton = tk.Button(self,
-                                    text=localisation['logs'][lang],
+                                    text=_('Logs'),
                                     command=lambda: self.show_frame(LogsFrame))
         self.quitButton = tk.Button(self,
-                                    text=localisation['quit'][lang],
+                                    text=_('Quit'),
                                     command=self.master.quit)
         self.homeButton = tk.Button(self,
-                                    text=localisation['home'][lang],
+                                    text=_('Home'),
                                     command=lambda: self.show_frame(WelcomeFrame))
 
         containerFrame = tk.Frame(self)
@@ -110,17 +107,7 @@ class MainFrame(BaseGridFrame):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-language", type=str, help="set app language", default="eng")
-    args = parser.parse_args()
-
-    if args.language in ["rus", "eng"]:
-        lang = args.language
-    else:
-        lang = 'eng'
-    os.environ['graph_cnn_app_lang'] = lang
-
     app = MainFrame()
     app.redirector()
-    app.master.title(localisation['main title'][lang])
+    app.master.title(_('Graphical CNN App'))
     app.mainloop()
